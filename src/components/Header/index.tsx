@@ -12,22 +12,18 @@ import RegisterLoginButtons from "./RegisterLoginButtons";
 
 interface HeaderProps {}
 
-const TagHeader = styled.header`
+interface ContainerProps {
+  bgColor: string;
+}
+
+const TagHeader = styled.header<ContainerProps>`
   height: 70px;
   margin: 0;
   padding: 0;
-
+  background-color: ${(props) => props.bgColor};
   button {
     height: 40px;
   }
-
-  #sign_in_button, #log_in_button{
-
-  }
-  #log_in_button{
-
-  }
-
   #menu_icon_header {
     width: 40px;
     border: 2px solid;
@@ -38,14 +34,14 @@ const TagHeader = styled.header`
 export default function Header(props: HeaderProps) {
   const [toggleDisplay, setToggleDisplay] = useState<boolean>(false);
 
-  function showButtons(){
-    setToggleDisplay(toggleDisplay ? false : true);    
+  function showButtons() {
+    setToggleDisplay(toggleDisplay ? false : true);
   }
   return (
-    <TagHeader>
+    <TagHeader bgColor={theme.palette.grey.A700}>
       <Container
         sx={{
-          bgcolor: "grey.A700",
+          position: "relative",
           height: "100%",
           px: 2,
           display: "flex",
@@ -72,9 +68,14 @@ export default function Header(props: HeaderProps) {
           </Box>
         </Link>
         <RegisterLoginButtons display={toggleDisplay} />
-          <Button aria-label="menu" id="menu_icon_header" sx={{ display: {sm: "none"}, minWidth: 40 }} onClick={showButtons}>
-            <MenuIcon iconColor={theme.palette.primary.main} />
-          </Button>
+        <Button
+          aria-label="menu"
+          id="menu_icon_header"
+          sx={{ display: { sm: "none" }, minWidth: 40 }}
+          onClick={showButtons}
+        >
+          <MenuIcon iconColor={theme.palette.primary.main} />
+        </Button>
       </Container>
     </TagHeader>
   );

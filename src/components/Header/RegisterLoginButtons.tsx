@@ -1,9 +1,9 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Box, Button, makeStyles } from "@mui/material";
-import theme from "../ThemeRegistry/theme";
+import { Button } from "@mui/material";
 import { useEffect } from "react";
+import theme from "../ThemeRegistry/theme";
 
 interface RegisterLoginButtonsProps {
   display: boolean;
@@ -11,6 +11,7 @@ interface RegisterLoginButtonsProps {
 
 interface ContainerProps {
   bgColor: string;
+  moveX: boolean;
 }
 
 const ContainerButtons = styled.div<ContainerProps>`
@@ -25,6 +26,7 @@ const ContainerButtons = styled.div<ContainerProps>`
   background-color: ${(props) => props.bgColor};
   box-shadow: 2px 2px 12px ${(props) => props.bgColor};
   transition: transform 0.4s;
+  transform: translateX(${(props) => (props.moveX ? "0px" : "300px")});
 
   @media (min-width: 600px) {
     position: static;
@@ -33,19 +35,11 @@ const ContainerButtons = styled.div<ContainerProps>`
 `;
 
 export default function RegisterLoginButtons(props: RegisterLoginButtonsProps) {
-  useEffect(() => {
-    const buttonBox = document.querySelector(
-      "#register_login_buttons"
-    ) as HTMLElement;
-    let pixels = props.display ? "300px" : "0";
-
-    buttonBox.style.transform = `translateX(${pixels})`;
-  }, [props.display]);
-
   return (
     <ContainerButtons
       id="register_login_buttons"
       bgColor={theme.palette.grey.A700}
+      moveX={props.display}
     >
       <Button
         variant="contained"
