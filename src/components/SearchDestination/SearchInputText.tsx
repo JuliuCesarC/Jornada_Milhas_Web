@@ -1,15 +1,24 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Box, IconButton, TextField } from "@mui/material";
+import { IconButton, TextField } from "@mui/material";
+import { useEffect, useState } from "react";
 import theme from "../ThemeRegistry/theme";
 
-interface SearchInputTextProps {}
+interface SearchInputTextProps {
+  brPoint: number;
+}
 
-const InputBox = styled.div`
+interface IconButtonProps {
+  primary: string;
+  primaryDark: string;
+  fillSvg: string;
+}
+const InputBox = styled.div<IconButtonProps>`
   position: relative;
   width: 100%;
   #search_icon {
+    z-index: 10;
     position: absolute;
     right: 7px;
     top: 50%;
@@ -17,9 +26,14 @@ const InputBox = styled.div`
     height: 40px;
     padding: 10px;
     transform: translateY(-50%);
+    background-color: ${(props) => props.primary};
+    :hover {
+      background-color: ${(props) => props.primaryDark};
+    }
     svg {
       width: 100%;
       height: 100%;
+      fill: ${(props) => props.fillSvg};
     }
   }
 `;
@@ -47,9 +61,28 @@ const InputTextStyled = styled(TextField)<InputTextProps>`
 `;
 
 export default function SearchInputText(props: SearchInputTextProps) {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const primaryColor = theme.palette.primary.main;
+  const primaryColorDark = theme.palette.primary.dark;
+  const greyColor = theme.palette.grey.A700;
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, []);
+
   return (
-    <InputBox>
-      <label id="search_icon" htmlFor="search_input_text">
+    <InputBox
+      primary={windowWidth < props.brPoint ? primaryColor : "none"}
+      primaryDark={windowWidth < props.brPoint ? primaryColorDark : "none"}
+      fillSvg={windowWidth > props.brPoint ? greyColor : "white"}
+    >
+      <IconButton
+        id="search_icon"
+        disabled={windowWidth > props.brPoint}
+        color="secondary"
+      >
         <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +90,6 @@ export default function SearchInputText(props: SearchInputTextProps) {
           height="1080.000000pt"
           viewBox="0 0 1080.000000 1080.000000"
           preserveAspectRatio="xMidYMid meet"
-          fill={theme.palette.grey.A700}
         >
           <g
             transform="translate(0.000000,1080.000000) scale(0.100000,-0.100000)"
@@ -80,15 +112,15 @@ export default function SearchInputText(props: SearchInputTextProps) {
             />
           </g>
         </svg>
-        </label>
-        <InputTextStyled
-          id="search_input_text"
-          label="Origem"
-          variant="outlined"
-          sx={{ width: "100%" }}
-          color1={theme.palette.grey.A400}
-          color2={theme.palette.grey.A700}
-        />
+      </IconButton>
+      <InputTextStyled
+        id="search_input_text"
+        label="Origem"
+        variant="outlined"
+        sx={{ width: "100%" }}
+        color1={theme.palette.grey.A400}
+        color2={theme.palette.grey.A700}
+      />
     </InputBox>
   );
 }

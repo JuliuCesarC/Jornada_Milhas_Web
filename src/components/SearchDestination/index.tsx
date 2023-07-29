@@ -3,6 +3,7 @@
 import styled from "@emotion/styled";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import SearchInputText from "./SearchInputText";
+import theme from "../ThemeRegistry/theme";
 
 interface SearchDestinationProps {}
 
@@ -16,13 +17,14 @@ export default function SearchDestination(props: SearchDestinationProps) {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "auto 120px",
+            gridTemplateColumns: {xs: "auto", sm: "auto 120px"},
             alignItems: "center",
             gap: "15px",
+            
           }}
         >
-          <SearchInputText />
-          <Button variant="contained" sx={{height: "70%"}}>Buscar</Button>
+          <SearchInputText brPoint={theme.breakpoints.values.sm} />
+          <Button variant="contained" sx={{height: "70%", display: {xs: "none", sm: "block"}}}>Buscar</Button>
         </Box>
       </Box>
     </Container>
