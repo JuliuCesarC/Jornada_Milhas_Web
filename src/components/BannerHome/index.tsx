@@ -31,14 +31,14 @@ const BannerContainer = styled.div<BreakPoints>`
   h1 {
     z-index: 10;
     position: absolute;
-    top: 100px;
+    top: 80px;
     left: 15px;
     font-size: 3rem;
   }
   #banner_front_home {
     z-index: 1;
     position: absolute;
-    bottom: 100px;
+    bottom: 120px;
     right: 15px;
     width: 270px;
     aspect-ratio: 1.5/1;
@@ -49,29 +49,35 @@ const BannerContainer = styled.div<BreakPoints>`
   }
   @media (min-width: ${(props) => props.brp.sm + "px"}) {
     h1{
+      top: 110px;
       left: 25px;
       font-size: 3.5rem;
     }
     #banner_front_home {
-      width: 350px;
+      width: 370px;
+      bottom: 100px;
       right: 25px;
     }
   }
   @media (min-width: ${(props) => props.brp.md + "px"}) {
     h1{
-      font-size: 4rem;
+      top: 140px;
     }
     #banner_front_home {
-      width: 400px;
+      width: 470px;
     }
   }
   @media (min-width: ${(props) => props.brp.xl + "px"}) {
     height: 500px;
+    h1{
+      top: 160px;
+    }
     #banner_principal_home {
       background-position-y: bottom;
     }
     #banner_front_home {
-      width: 500px;
+      width: 550px;
+      bottom: 80px;
     }
   }
   @media (min-width: 2000px) {
