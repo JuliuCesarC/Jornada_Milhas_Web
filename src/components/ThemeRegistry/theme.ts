@@ -20,7 +20,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: "#6750A4",
-      light: "#EADDFF",
+      light: "#f9f6ff",
       dark: "#4F378B"
     },
     secondary:{
@@ -29,6 +29,7 @@ const theme = createTheme({
     grey: {
       A700: "#1C1B1F",
       A400: "#79747E",
+      "400": "#bdbdbd",
       A200: "#f5f5f4"
     },
     error: {

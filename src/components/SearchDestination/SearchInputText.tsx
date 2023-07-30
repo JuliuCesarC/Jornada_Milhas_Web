@@ -70,6 +70,7 @@ export default function SearchInputText(props: SearchInputTextProps) {
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
+    setWindowWidth(window.innerWidth);
   }, []);
 
   return (
