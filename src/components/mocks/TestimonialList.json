@@ -1,0 +1,19 @@
+{
+  "list": [
+    {
+      "image": "/img/images/person.png",
+      "testimonial": "A agência de viagens foi essencial para a realização do meu sonho de conhecer novos lugares. Eles ofereceram um serviço de qualidade e me ajudaram em todas as etapas da viagem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis feli",
+      "name": "Jão da Silva"
+    },
+    {
+      "image": "/img/images/person.png",
+      "testimonial": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod.",
+      "name": "Jão da Silva"
+    },
+    {
+      "image": "/img/images/person.png",
+      "testimonial": "A agência de viagens superou todas as minhas expectativas. Eles me ajudaram a encontrar os melhores destinos e pacotes que se encaixaram perfeitamente no meu orçamento.",
+      "name": "Jão da Silva"
+    }
+  ]
+}
