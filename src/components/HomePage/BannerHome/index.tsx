@@ -3,8 +3,8 @@
 import styled from "@emotion/styled";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import frontBanner from "../../../public/img/images/banner-front-home.png";
-import theme, { BreakPoints } from "../ThemeRegistry/theme";
+import frontBanner from "../../../../public/img/images/banner-front-home.png";
+import theme, { BreakPoints } from "../../ThemeRegistry/theme";
 
 interface BannerHomeProps {}
 

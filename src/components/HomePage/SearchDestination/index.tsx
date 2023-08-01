@@ -3,7 +3,7 @@
 import styled from "@emotion/styled";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import SearchInputText from "./SearchInputText";
-import theme from "../ThemeRegistry/theme";
+import theme from "../../ThemeRegistry/theme";
 
 interface SearchDestinationProps {}
 

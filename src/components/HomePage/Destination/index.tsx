@@ -11,8 +11,8 @@ import {
   Pagination,
   Typography,
 } from "@mui/material";
-import DestinationList from "../mocks/DestinationList.json";
-import theme, { BreakPoints } from "../ThemeRegistry/theme";
+import DestinationList from "../../mocks/DestinationList.json";
+import theme, { BreakPoints } from "../../ThemeRegistry/theme";
 import { useState } from "react";
 
 interface DestinationProps {}
@@ -55,8 +55,12 @@ export default function Destination(props: DestinationProps) {
               className="card_destination"
               sx={{
                 maxWidth: 370,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
                 border: "1px solid",
                 borderColor: "grey.400",
+                bgcolor: "primary.light",
                 boxShadow: "2px 2px 7px rgba(0, 0, 0, 0.1)",
               }}
               key={index}
@@ -66,7 +70,7 @@ export default function Destination(props: DestinationProps) {
                 image={destination.imageBytes}
                 title={`Imagem card destino: ${destination.title}`}
               />
-              <CardContent sx={{ bgcolor: "primary.light" }}>
+              <CardContent sx={{ }}>
                 <Typography
                   variant="h5"
                   fontSize="1.6rem"
@@ -99,7 +103,7 @@ export default function Destination(props: DestinationProps) {
                   {destination.price}
                 </Typography>
               </CardContent>
-              <CardActions sx={{ bgcolor: "primary.light" }}>
+              <CardActions>
                 <Button
                   variant="contained"
                   sx={{ width: "95%", mx: "auto", mb: 3 }}

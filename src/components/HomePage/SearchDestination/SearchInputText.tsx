@@ -3,7 +3,7 @@
 import styled from "@emotion/styled";
 import { IconButton, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import theme from "../ThemeRegistry/theme";
+import theme from "../../ThemeRegistry/theme";
 
 interface SearchInputTextProps {
   brPoint: number;

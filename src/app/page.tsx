@@ -1,8 +1,9 @@
-import BannerHome from '@/components/BannerHome'
+
+import BannerHome from '@/components/HomePage/BannerHome'
+import Destination from '@/components/HomePage/Destination'
+import SearchDestination from '@/components/HomePage/SearchDestination'
+import Testimonial from '@/components/HomePage/Testimonial'
 import styles from './page.module.css'
-import SearchDestination from '@/components/SearchDestination'
-import Destination from '@/components/Destination'
-import Testimonial from '@/components/Testimonial'
 
 export default function Home() {
   return (
