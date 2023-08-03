@@ -2,7 +2,7 @@
 
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import TestimonialList from "../../mocks/TestimonialList.json";
+import TestimonialList from "../../mocks/TestimonialListMock.json";
 
 interface TestimonialProps {}
 
