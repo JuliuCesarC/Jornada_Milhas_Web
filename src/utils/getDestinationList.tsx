@@ -1,4 +1,4 @@
-async function getData(page: number) {
+export default async function getDestinationList(page: number) {
   const res = await fetch("http://localhost:8080/destinos?page="+page);
 
   if (!res.ok) {
@@ -19,18 +19,18 @@ export interface IDestinationList {
       price: number;
     }
   ];
-  pageNumber: number;
+  number: number;
   totalPages: number;
 }
 
-export default async function getDestinationList(page?: number) {
-  const data: any = await getData(page || 0);
+// export default async function getDestinationList(page?: number) {
+//   const data: any = await getData(page || 0);
 
-  const destinationList : IDestinationList = {
-    content: data.content,
-    pageNumber: data.number,
-    totalPages: data.totalPages
-  };
+//   const destinationList : IDestinationList = {
+//     content: data.content,
+//     pageNumber: data.number,
+//     totalPages: data.totalPages
+//   };
 
-  return destinationList;
-}
+//   return destinationList;
+// }

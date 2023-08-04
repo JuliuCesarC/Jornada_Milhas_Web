@@ -1,5 +1,8 @@
 "use client";
 
+import getDestinationList, {
+  IDestinationList,
+} from "@/utils/getDestinationList";
 import {
   Box,
   Button,
@@ -11,30 +14,34 @@ import {
   Pagination,
   Typography,
 } from "@mui/material";
-import DestinationList from "../../mocks/DestinationListMock.json";
-import { useState } from "react";
-import getDestinationList, {
-  IDestinationList,
-} from "@/utils/getDestinationList";
+import { Suspense, useEffect, useState } from "react";
 
 interface CardsDestinationProps {
   dList: IDestinationList;
 }
 
 export default function CardsDestination(props: CardsDestinationProps) {
-  const [destinationList, setDestinationList] = useState(props.dList.content);
-  const [pageNumber, setPageNumber] = useState<number>(
-    props.dList.pageNumber + 1
+  const [destinationList, setDestinationList] = useState<IDestinationList>(
+    props.dList
   );
+  const [pageNumber, setPageNumber] = useState<number>(props.dList.number);
   const totalPages = props.dList.totalPages;
   const pageWidth = "90%";
+
+  useEffect(() => {
+    updateInitialProps();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function updateInitialProps() {
+    setDestinationList(await getDestinationList(pageNumber));
+  }
 
   async function paginationChange(
     event: React.ChangeEvent<unknown>,
     value: number
   ) {
-    const getList: IDestinationList = await getDestinationList(value - 1);
-    setDestinationList(getList.content);
+    setDestinationList(await getDestinationList(value - 1));
     setPageNumber(value);
   }
   return (
@@ -56,7 +63,7 @@ export default function CardsDestination(props: CardsDestinationProps) {
           gap: 3,
         }}
       >
-        {destinationList.map((destination, index) => {
+        {destinationList.content.map((destination, index) => {
           if (index > 5) return;
           return (
             <Card
@@ -73,11 +80,13 @@ export default function CardsDestination(props: CardsDestinationProps) {
               }}
               key={index}
             >
-              <CardMedia
-                sx={{ height: 270 }}
-                image={"data:image/png;base64," + destination.imageOne}
-                title={`Imagem card destino: ${destination.name}`}
-              />
+              <Suspense fallback={<p>Teste Suspense</p>}>
+                <CardMedia
+                  sx={{ height: 270 }}
+                  image={"data:image/png;base64," + destination.imageOne}
+                  title={`Imagem card destino: ${destination.name}`}
+                />
+              </Suspense>
               <CardContent sx={{}}>
                 <Typography
                   variant="h5"
@@ -108,10 +117,11 @@ export default function CardsDestination(props: CardsDestinationProps) {
                   color="grey.800"
                   fontSize="2rem"
                 >
-                  {destination.price.toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
+                  {destination.price &&
+                    destination.price.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -129,7 +139,7 @@ export default function CardsDestination(props: CardsDestinationProps) {
       <Box sx={{ display: "flex", justifyContent: "center", my: 4 }}>
         <Pagination
           count={totalPages}
-          defaultPage={pageNumber}
+          defaultPage={pageNumber + 1}
           boundaryCount={1}
           color="primary"
           size="large"
