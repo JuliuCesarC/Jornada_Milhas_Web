@@ -34,7 +34,8 @@ export default function CardsDestination(props: CardsDestinationProps) {
   }, []);
 
   async function updateInitialProps() {
-    setDestinationList(await getDestinationList(pageNumber));
+    setDestinationList(await getDestinationList(0));
+    setPageNumber(0);
   }
 
   async function paginationChange(
@@ -55,9 +56,9 @@ export default function CardsDestination(props: CardsDestinationProps) {
           margin: "auto",
           display: "grid",
           gridTemplateColumns: {
-            xs: "auto",
-            sm: "auto auto",
-            md: "auto auto auto",
+            xs: "1fr",
+            sm: "1fr 1fr",
+            md: "1fr 1fr 1fr",
           },
           justifyItems: "center",
           gap: 3,
@@ -69,7 +70,7 @@ export default function CardsDestination(props: CardsDestinationProps) {
             <Card
               className="card_destination"
               sx={{
-                maxWidth: 370,
+                width: "100%",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -131,7 +132,7 @@ export default function CardsDestination(props: CardsDestinationProps) {
                 >
                   ver detalhes
                 </Button>
-              </CardActions>
+              </CardActions> 
             </Card>
           );
         })}
