@@ -14,7 +14,7 @@ import {
   Pagination,
   Typography,
 } from "@mui/material";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CardsDestinationProps {
   dList: IDestinationList;
@@ -81,13 +81,11 @@ export default function CardsDestination(props: CardsDestinationProps) {
               }}
               key={index}
             >
-              <Suspense fallback={<p>Teste Suspense</p>}>
-                <CardMedia
-                  sx={{ height: 270 }}
-                  image={"data:image/png;base64," + destination.imageOne}
-                  title={`Imagem card destino: ${destination.name}`}
-                />
-              </Suspense>
+              <CardMedia
+                sx={{ height: 270 }}
+                image={"data:image/png;base64," + destination.imageOne}
+                title={`Imagem card destino: ${destination.name}`}
+              />
               <CardContent sx={{}}>
                 <Typography
                   variant="h5"
@@ -132,7 +130,7 @@ export default function CardsDestination(props: CardsDestinationProps) {
                 >
                   ver detalhes
                 </Button>
-              </CardActions> 
+              </CardActions>
             </Card>
           );
         })}
