@@ -1,41 +1,32 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { IconButton, TextField } from "@mui/material";
+import { Box, IconButton, TextField } from "@mui/material";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import theme from "../../ThemeRegistry/theme";
 
 interface SearchInputTextProps {
   brPoint: number;
   searchText: string;
-  setSearchText: Dispatch<SetStateAction<string>>
+  setSearchText: Dispatch<SetStateAction<string>>;
+  search: ()=> void
 }
 
 interface IconButtonProps {
-  primary: string;
-  primaryDark: string;
-  fillSvg: string;
+  brPoint: number;
 }
 const InputBox = styled.div<IconButtonProps>`
   position: relative;
   width: 100%;
-  #search_icon {
-    z-index: 10;
-    position: absolute;
-    right: 7px;
-    top: 50%;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
-    transform: translateY(-50%);
-    background-color: ${(props) => props.primary};
-    :hover {
-      background-color: ${(props) => props.primaryDark};
-    }
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+  }
+
+  @media (min-width: ${(props) => props.brPoint + "px"}) {
     svg {
-      width: 100%;
-      height: 100%;
-      fill: ${(props) => props.fillSvg};
+      fill: black;
     }
   }
 `;
@@ -64,10 +55,6 @@ const InputTextStyled = styled(TextField)<InputTextProps>`
 
 export default function SearchInputText(props: SearchInputTextProps) {
   const [windowWidth, setWindowWidth] = useState<number>(0);
-  const primaryColor = theme.palette.primary.main;
-  const primaryColorDark = theme.palette.primary.dark;
-  const greyColor = theme.palette.grey.A700;
-
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
@@ -76,15 +63,22 @@ export default function SearchInputText(props: SearchInputTextProps) {
   }, []);
 
   return (
-    <InputBox
-      primary={windowWidth < props.brPoint ? primaryColor : "none"}
-      primaryDark={windowWidth < props.brPoint ? primaryColorDark : "none"}
-      fillSvg={windowWidth > props.brPoint ? greyColor : "white"}
-    >
+    <InputBox brPoint={props.brPoint}>
       <IconButton
         id="search_icon"
         disabled={windowWidth > props.brPoint}
-        color="secondary"
+        sx={{
+          zIndex: 10,
+          position: "absolute",
+          right: 7,
+          top: "calc(50% - 20px)",
+          width: 40,
+          height: 40,
+          p: "10px",
+          bgcolor: { xs: "primary.main", sm: "white" },
+          ":hover": { bgcolor: "primary.dark" },
+        }}
+        onClick={props.search}
       >
         <svg
           version="1.0"
@@ -124,7 +118,7 @@ export default function SearchInputText(props: SearchInputTextProps) {
         color1={theme.palette.grey.A400}
         color2={theme.palette.grey.A700}
         value={props.searchText}
-        onChange={e => props.setSearchText(e.target.value)}
+        onChange={(e) => props.setSearchText(e.target.value)}
       />
     </InputBox>
   );

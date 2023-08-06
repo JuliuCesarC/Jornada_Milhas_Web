@@ -32,7 +32,7 @@ export default function SearchDestination(props: SearchDestinationProps) {
             
           }}
         >
-          <SearchInputText brPoint={theme.breakpoints.values.sm} searchText={searchText} setSearchText={setSearchText} />
+          <SearchInputText brPoint={theme.breakpoints.values.sm} searchText={searchText} setSearchText={setSearchText} search={search} />
           <Button variant="contained" sx={{height: "70%", display: {xs: "none", sm: "block"}}} onClick={search}>Buscar</Button>
         </Box>
       </Box>
