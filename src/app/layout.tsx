@@ -3,6 +3,7 @@ import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import { DestinationProvider } from "@/components/HomePage/Context/DestinationContext";
 
 export const metadata: Metadata = {
   title: "Jornada Milhas",
@@ -18,9 +19,11 @@ export default function RootLayout({
     <html lang="pt-br">
       <body>
         <ThemeRegistry>
-          <Header />
-          {children}
-          <Footer />
+          <DestinationProvider>
+            <Header />
+            {children}
+            <Footer />
+          </DestinationProvider>
         </ThemeRegistry>
       </body>
     </html>

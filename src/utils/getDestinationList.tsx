@@ -22,15 +22,3 @@ export interface IDestinationList {
   number: number;
   totalPages: number;
 }
-
-// export default async function getDestinationList(page?: number) {
-//   const data: any = await getData(page || 0);
-
-//   const destinationList : IDestinationList = {
-//     content: data.content,
-//     pageNumber: data.number,
-//     totalPages: data.totalPages
-//   };
-
-//   return destinationList;
-// }

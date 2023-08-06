@@ -2,11 +2,13 @@
 
 import styled from "@emotion/styled";
 import { IconButton, TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import theme from "../../ThemeRegistry/theme";
 
 interface SearchInputTextProps {
   brPoint: number;
+  searchText: string;
+  setSearchText: Dispatch<SetStateAction<string>>
 }
 
 interface IconButtonProps {
@@ -121,6 +123,8 @@ export default function SearchInputText(props: SearchInputTextProps) {
         sx={{ width: "100%" }}
         color1={theme.palette.grey.A400}
         color2={theme.palette.grey.A700}
+        value={props.searchText}
+        onChange={e => props.setSearchText(e.target.value)}
       />
     </InputBox>
   );
