@@ -1,51 +1,50 @@
-"use client";
-
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
-import { useEffect } from "react";
+import { Box, BoxProps, Button } from "@mui/material";
 import theme from "../ThemeRegistry/theme";
 
 interface RegisterLoginButtonsProps {
   display: boolean;
 }
 
-interface ContainerProps {
-  bgColor: string;
-  moveX: boolean;
+interface ContainerProps extends BoxProps {
+  move: string;
+  breakpoint: number;
 }
 
-const ContainerButtons = styled.div<ContainerProps>`
-  z-index: 10;
-  position: absolute;
-  top: 15px;
-  right: 65px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  background-color: ${(props) => props.bgColor};
-  box-shadow: 2px 2px 12px ${(props) => props.bgColor};
-  transition: transform 0.4s;
-  transform: translateX(${(props) => (props.moveX ? "0px" : "300px")});
-
-  @media (min-width: 600px) {
-    position: static;
+const ContainerButtons = styled(Box)<ContainerProps>`
+  transform: translateX(${(props) => props.move});
+  @media (min-width: ${(props) => props.breakpoint + "px"}) {
     transform: translateX(0);
   }
 `;
 
 export default function RegisterLoginButtons(props: RegisterLoginButtonsProps) {
+  let moveX: string = props.display ? "0px" : "300px";
   return (
     <ContainerButtons
-      id="register_login_buttons"
-      bgColor={theme.palette.grey.A700}
-      moveX={props.display}
+      move={moveX}
+      breakpoint={theme.breakpoints.values.sm}
+      sx={{
+        zIndex: 10,
+        position: { xs: "absolute", sm: "static" },
+        top: 15,
+        right: 65,
+        height: 40,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 1,
+        bgcolor: "grey.A700",
+        transition: "transform 0.4s",
+      }}
+      boxShadow={2}
     >
       <Button
         variant="contained"
         id="sign_in_button"
         sx={{
           minWidth: 135,
+          height: "100%",
         }}
       >
         Cadastrar-se
@@ -54,6 +53,7 @@ export default function RegisterLoginButtons(props: RegisterLoginButtonsProps) {
         variant="outlined"
         id="log_in_button"
         sx={{
+          height: "100%",
           color: "white",
           borderWidth: 2,
           ":hover": { borderWidth: 2 },

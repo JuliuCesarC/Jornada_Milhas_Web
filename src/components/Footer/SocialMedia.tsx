@@ -1,43 +1,60 @@
-import { Box } from "@mui/material";
-import Image from "next/image";
-import Link from "next/link";
+import { Box, Link } from "@mui/material";
+import Image, { StaticImageData } from "next/image";
 import instagramIcon from "../../../public/img/icons/instragam-icon.png";
 import twiterIcon from "../../../public/img/icons/twiter-icon.png";
 import WhatsappIcon from "../../../public/img/icons/Whatsapp-icon.png";
-import styled from "@emotion/styled";
 
 interface SocialMediaProps {
-  whatsappLink: string;
-  instragamLink: string;
-  twitterLink: string;
+  gitHubLink: string;
 }
 
-const LinkStyled = styled.a`
-padding: 4px;
-`
-
 export default function SocialMedia(props: SocialMediaProps) {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        gap: 1,
+      }}
+    >
+      <LinkWithImage
+        href={props.gitHubLink}
+        src={WhatsappIcon}
+        alt="ícone WhatsApp"
+      />
+      <LinkWithImage
+        href={props.gitHubLink}
+        src={instagramIcon}
+        alt="ícone Instagram"
+      />
+      <LinkWithImage
+        href={props.gitHubLink}
+        src={twiterIcon}
+        alt="ícone Twitter/X"
+      />
+    </Box>
+  );
+}
+
+interface linkImagesProps {
+  href: string;
+  src: StaticImageData;
+  alt: string;
+}
+function LinkWithImage(props: linkImagesProps) {
   const widthAndHeight = 35;
   return (
-    <Box sx={{
-      display: "flex",
-      flexDirection: "row",
-      // gap: 1
-    }}>
-      <LinkStyled href={props.whatsappLink}>
-        <Image src={WhatsappIcon} alt="ícone WhatsApp" width={widthAndHeight} height={widthAndHeight} />
-      </LinkStyled>
-      <LinkStyled href={props.instragamLink}>
-        <Image
-          src={instagramIcon}
-          alt="ícone Instagram"
-          width={widthAndHeight}
-          height={widthAndHeight}
-        />
-      </LinkStyled>
-      <LinkStyled href={props.twitterLink}>
-        <Image src={twiterIcon} alt="ícone Twitter/X" width={widthAndHeight} height={widthAndHeight} />
-      </LinkStyled>
-    </Box>
+    <Link
+      href={props.href}
+      sx={{ width: 40, height: 40, p: "2px" }}
+      target="_blank"
+    >
+      <Image
+        src={props.src}
+        alt={props.alt}
+        width={widthAndHeight}
+        height={widthAndHeight}
+      />
+    </Link>
   );
 }

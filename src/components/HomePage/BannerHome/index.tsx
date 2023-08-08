@@ -1,35 +1,27 @@
-"use client";
-
-import styled from "@emotion/styled";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import frontBanner from "../../../../public/img/images/banner-front-home.png";
 
-const BannerContainer = styled(Box)`
-  #banner_principal_home {
-    transform: translateX(-50%);
-  }
-`;
-
 export default function BannerHome() {
   return (
-    <BannerContainer sx={{
-      position: "relative",
-      width: "100%",
-      height: {
-        xs: "420px",
-        sm: "450px",
-        md: "470px",
-        lg: "500px",
-        xl: "550px",
-      },
-    }}>
+    <Box
+      sx={{
+        position: "relative",
+        width: "100%",
+        height: {
+          xs: "420px",
+          sm: "450px",
+          md: "470px",
+          lg: "500px",
+          xl: "550px",
+        },
+      }}
+    >
       <Box
         id="banner_principal_home"
         sx={{
           position: "absolute",
           top: 0,
-          left: "50%",
           width: "100%",
           height: "100%",
           backgroundImage: "url(img/images/banner-bg-home.png)",
@@ -73,6 +65,6 @@ export default function BannerHome() {
           />
         </Box>
       </Container>
-    </BannerContainer>
+    </Box>
   );
 }

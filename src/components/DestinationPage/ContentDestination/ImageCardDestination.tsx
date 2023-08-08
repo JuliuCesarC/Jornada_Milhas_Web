@@ -1,5 +1,3 @@
-"use client"
-
 import ImageBase64 from "@/utils/ImageBase64";
 import { Box } from "@mui/material";
 
