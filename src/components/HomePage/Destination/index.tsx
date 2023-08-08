@@ -15,6 +15,7 @@ import { useContext, useEffect, useState } from "react";
 import { DestinationContext } from "../Context/DestinationContext";
 import SearchChip from "./SearchChip";
 import Link from "next/link";
+import ImageBase64 from "@/utils/ImageBase64";
 
 export default function Destination() {
   const dContext = useContext(DestinationContext);
@@ -22,11 +23,11 @@ export default function Destination() {
 
   useEffect(() => {
     updateInitialProps();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function updateInitialProps() {
-    dContext.changeDestinationList(0);
+    dContext.changeDestinationList(dContext.pageNumber);
   }
 
   async function paginationChange(
@@ -34,9 +35,6 @@ export default function Destination() {
     value: number
   ) {
     if (value < 0) return;
-    console.log("Valor navegação: " + value);
-    console.log("Valor state: " + dContext.pageNumber);
-
     dContext.changeDestinationList(value - 1);
     dContext.setPageNumber(value - 1);
   }
@@ -86,7 +84,7 @@ export default function Destination() {
                 >
                   <CardMedia
                     sx={{ height: 270 }}
-                    image={"data:image/png;base64," + destination.imageOne}
+                    image={ImageBase64(destination.imageOne)}
                     title={`Imagem card destino: ${destination.name}`}
                   />
                   <CardContent sx={{}}>
@@ -132,7 +130,10 @@ export default function Destination() {
                       sx={{ width: "95%", p: 0, mx: "auto", mb: 3 }}
                     >
                       <Link
-                        href="/destino"
+                        href={{
+                          pathname: "/destino",
+                          query: {id: destination.id.toString()}
+                        }}
                         style={{
                           width: "100%",
                           height: "100%",

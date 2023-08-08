@@ -1,12 +1,27 @@
+"use client";
+
 import { Box, Container, Typography } from "@mui/material";
 
-import DestinationMock from "../../mocks/DestinationMock.json";
-import Image from "next/image";
+import getDestination, { DestinationType } from "@/utils/getDestination";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import ImageCardDestination from "./ImageCardDestination";
 
-interface ContentDestinationProps {}
+export default function ContentDestination() {
+  const router = useSearchParams();
+  const [destination, setDestination] = useState<DestinationType>();
 
-export default function ContentDestination(props: ContentDestinationProps) {
+  useEffect(() => {
+    loadDestination();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function loadDestination() {
+    if (!router.get("id")) return;
+    setDestination(
+      await getDestination(router.get("id")!.replace(/[^0-9]/g, ""))
+    );
+  }
   return (
     <Container>
       <Typography
@@ -18,7 +33,7 @@ export default function ContentDestination(props: ContentDestinationProps) {
           fontWeight: 400,
         }}
       >
-        {DestinationMock.title}
+        {destination?.name}
       </Typography>
       <Typography
         variant="h2"
@@ -29,7 +44,7 @@ export default function ContentDestination(props: ContentDestinationProps) {
           fontWeight: { xs: 400, sm: 500 },
         }}
       >
-        {DestinationMock.target}
+        {destination?.target}
       </Typography>
       <Box
         sx={{
@@ -43,8 +58,12 @@ export default function ContentDestination(props: ContentDestinationProps) {
           borderRadius: 2,
         }}
       >
-        <ImageCardDestination image={DestinationMock.imageOne} />
-        <ImageCardDestination image={DestinationMock.imageTwo} />
+        {destination && (
+          <>
+            <ImageCardDestination image={destination.imageOne} />
+            <ImageCardDestination image={destination.imageTwo} />
+          </>
+        )}
       </Box>
       <Typography
         component="p"
@@ -53,7 +72,7 @@ export default function ContentDestination(props: ContentDestinationProps) {
           fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
         }}
       >
-        {DestinationMock.destinationDescription}
+        {destination?.destinationDescription}
       </Typography>
     </Container>
   );
