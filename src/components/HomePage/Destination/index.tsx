@@ -14,6 +14,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { DestinationContext } from "../Context/DestinationContext";
 import SearchChip from "./SearchChip";
+import Link from "next/link";
 
 export default function Destination() {
   const dContext = useContext(DestinationContext);
@@ -33,11 +34,11 @@ export default function Destination() {
     value: number
   ) {
     if (value < 0) return;
-    console.log("Valor navegação: "+value);
-    console.log("Valor state: "+dContext.pageNumber);
-    
+    console.log("Valor navegação: " + value);
+    console.log("Valor state: " + dContext.pageNumber);
+
     dContext.changeDestinationList(value - 1);
-    dContext.setPageNumber(value-1);
+    dContext.setPageNumber(value - 1);
   }
   return (
     <Container>
@@ -45,7 +46,11 @@ export default function Destination() {
         Destinos
       </Typography>
       {dContext.lastSearch && (
-        <SearchChip pageWidth={pageWidth} lastSearch={dContext.lastSearch} resetDestinationList={dContext.resetDestinationList} />
+        <SearchChip
+          pageWidth={pageWidth}
+          lastSearch={dContext.lastSearch}
+          resetDestinationList={dContext.resetDestinationList}
+        />
       )}
       <Box
         sx={{
@@ -124,9 +129,20 @@ export default function Destination() {
                   <CardActions>
                     <Button
                       variant="contained"
-                      sx={{ width: "95%", mx: "auto", mb: 3 }}
+                      sx={{ width: "95%", p: 0, mx: "auto", mb: 3 }}
                     >
-                      ver detalhes
+                      <Link
+                        href="/destino"
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          padding: "6px 16px",
+                          textDecoration: "none",
+                          color: "white",
+                        }}
+                      >
+                        ver detalhes
+                      </Link>
                     </Button>
                   </CardActions>
                 </Card>
@@ -138,7 +154,7 @@ export default function Destination() {
         <Pagination
           count={dContext.destinationList?.totalPages}
           defaultPage={1}
-          page={(dContext.pageNumber+1)}          
+          page={dContext.pageNumber + 1}
           boundaryCount={1}
           color="primary"
           size="large"
