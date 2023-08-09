@@ -7,13 +7,17 @@ import { useState } from "react";
 import LogoImg from "../../../public/img/logo/Logo-branco.png";
 import NavMenuButton from "./NavMenuButton";
 import RegisterLoginButtons from "./RegisterLoginButtons";
+import LoginSection from "./LoginSection";
 
 export default function Header() {
   const [toggleDisplay, setToggleDisplay] = useState<boolean>(false);
+  const [loginState, setLoginState] = useState<boolean>(false);
 
   function showButtons() {
-    setToggleDisplay(toggleDisplay ? false : true);
-    
+    setToggleDisplay(!toggleDisplay);
+  }
+  function showLoginSection() {
+    setLoginState(!loginState);
   }
   return (
     <Box
@@ -52,8 +56,26 @@ export default function Header() {
             />
           </Box>
         </Link>
-        <RegisterLoginButtons display={toggleDisplay} />
-        <NavMenuButton onClick={showButtons} />
+        <Box sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: 1
+        }}>
+          {loginState ? (
+            <LoginSection
+              display={toggleDisplay}
+              showLoginSection={showLoginSection}
+            />
+          ) : (
+            <RegisterLoginButtons
+              display={toggleDisplay}
+              showLoginSection={showLoginSection}
+            />
+          )}
+          <NavMenuButton onClick={showButtons} />
+        </Box>
       </Container>
     </Box>
   );

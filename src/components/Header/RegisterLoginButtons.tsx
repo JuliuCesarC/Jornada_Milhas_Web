@@ -4,6 +4,7 @@ import theme from "../ThemeRegistry/theme";
 
 interface RegisterLoginButtonsProps {
   display: boolean;
+  showLoginSection: () => void;
 }
 
 interface ContainerProps extends BoxProps {
@@ -58,6 +59,7 @@ export default function RegisterLoginButtons(props: RegisterLoginButtonsProps) {
           borderWidth: 2,
           ":hover": { borderWidth: 2 },
         }}
+        onClick={props.showLoginSection}
       >
         Login
       </Button>
