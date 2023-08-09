@@ -12,9 +12,10 @@ import {
   useState,
 } from "react";
 
-interface DestinationContextType {
+export interface DestinationContextType {
   destinationList: IDestinationList | undefined;
   changeDestinationList: (page: number, name?: string) => void;
+  LoadingState: boolean;
   pageNumber: number;
   setPageNumber: Dispatch<SetStateAction<number>>;
   lastSearch: string;
@@ -25,24 +26,30 @@ export const DestinationContext = createContext({} as DestinationContextType);
 
 export function DestinationProvider({ children }: { children: ReactNode }) {
   const [destinationList, setDestinationList] = useState<IDestinationList>();
+  const [LoadingState, setLoadingState] = useState(false);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [lastSearch, setLastSearch] = useState<string>("");
 
   async function changeDestinationList(page: number, name?: string) {
+    setLoadingState(true);
     if (name) {
       const dList = await getSearchDestination(page, name);
+      console.log("Lista de destinos: " + await dList);
       setDestinationList(dList);
       setPageNumber(0);
       setLastSearch(name);
+      setLoadingState(false);
       return;
     }
     if (lastSearch) {
       const dList = await getSearchDestination(page, lastSearch);
       setDestinationList(dList);
+      setLoadingState(false);
       return;
     }
     const dList = await getDestinationList(page);
     setDestinationList(dList);
+    setLoadingState(false);
   }
 
   async function resetDestinationList() {
@@ -56,6 +63,7 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
       value={{
         destinationList,
         changeDestinationList,
+        LoadingState,
         pageNumber,
         setPageNumber,
         lastSearch,

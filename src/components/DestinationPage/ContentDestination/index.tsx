@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Skeleton, Typography } from "@mui/material";
 
 import getDestination, { DestinationType } from "@/utils/getDestination";
 import { useSearchParams } from "next/navigation";
@@ -13,7 +13,7 @@ export default function ContentDestination() {
 
   useEffect(() => {
     loadDestination();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function loadDestination() {
@@ -33,7 +33,7 @@ export default function ContentDestination() {
           fontWeight: 400,
         }}
       >
-        {destination?.name}
+        {!destination ? <Skeleton width="40%" height="4rem" /> : destination!.name}
       </Typography>
       <Typography
         variant="h2"
@@ -44,7 +44,7 @@ export default function ContentDestination() {
           fontWeight: { xs: 400, sm: 500 },
         }}
       >
-        {destination?.target}
+        {!destination ? <Skeleton width="70%" height="1.8rem" /> : destination!.target}
       </Typography>
       <Box
         sx={{
@@ -58,10 +58,15 @@ export default function ContentDestination() {
           borderRadius: 2,
         }}
       >
-        {destination && (
+        {destination ? (
           <>
             <ImageCardDestination image={destination.imageOne} />
             <ImageCardDestination image={destination.imageTwo} />
+          </>
+        ) : (
+          <>
+            <Skeleton variant="rounded" sx={{width: "100%", height: "100%", aspectRatio: "2/1"}} />
+            <Skeleton variant="rounded" sx={{width: "100%", height: "100%", aspectRatio: "2/1"}} />
           </>
         )}
       </Box>
@@ -72,7 +77,14 @@ export default function ContentDestination() {
           fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
         }}
       >
-        {destination?.destinationDescription}
+        {!destination ? 
+        <>
+          <Skeleton width="97%" height="1.2rem" /> 
+          <Skeleton width="99%" height="1.2rem" /> 
+          <Skeleton width="96%" height="1.2rem" /> 
+          <Skeleton width="94%" height="1.2rem" /> 
+        </>
+        : destination!.destinationDescription}
       </Typography>
     </Container>
   );
