@@ -1,8 +1,58 @@
 {
-  "imageOne": "img/images/atacama_destination.jpg",
-  "imageTwo": "img/images/atacama_destination_2.png",
-  "title": "Deserto do Atacama 14",
-  "target": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus.",
-  "destinationDescription": "Lorem ipsum dolor sit amet. Et officiis veritatis ea quod corporis eum quos dolor eos odio quae qui neque labore. Non animi voluptates aut porro ipsum est praesentium quae rem iure voluptatum aut molestias provident? Sit veritatis facilis et sunt nisi et dolores modi. Vel molestias quia est reprehenderit vitae qui nihil cupiditate qui distinctio obcaecati vel omnis nobis aut corporis illum? Aut corporis minus aut fuga atque non repellat dolorem ab ullam neque. Qui molestias officiis ea voluptas soluta ab fugit autem est nihil velit non debitis vitae 33 tempora distinctio! Et quis minus vel tempora galisum eum autem animi ut nesciunt quia et illo quisquam. Qui minima modi et adipisci nobis et pariatur nostrum. Et maxime assumenda qui laboriosam quod 33 deserunt illum.",
-  "price": "11876.33"
+  "list": [
+    {
+      "id": 1,
+      "imageOne": "img/mockImages/atacama.png",
+      "imageTwo": "img/mockImages/atacama.png",
+      "name": "Deserto do Atacama",
+      "target": "Paisagens deslumbrantes e aventuras únicas",
+      "destinationDescription": "Tá afim de uma viagem incrível? O Deserto do Atacama é o lugar certo! Imagine céus estrelados de tirar o fôlego, lagunas coloridas de outro mundo, vulcões imponentes e uma vibe única. Gêiseres fumegantes, flamingos na paisagem e uma energia surreal te esperam. Se curte natureza e aventura, não dá pra perder essa experiência alucinante!",
+      "price": "14876.33"
+    },
+    {
+      "id": 2,
+      "imageOne": "img/mockImages/cordilheira-dos-andes.png",
+      "imageTwo": "img/mockImages/cordilheira-dos-andes.png",
+      "name": "Cordilheira dos andes",
+      "target": "Majestosa beleza e imponência natural",
+      "destinationDescription": "Pensa num lugar incrível pra explorar: a Cordilheira dos Andes! Montanhas majestosas, lagos deslumbrantes e paisagens de tirar o fôlego. Se curte trekking, esportes de inverno ou simplesmente contemplar vistas espetaculares, aqui é o paraíso. Cultura rica, fauna única e aventura em cada canto. Quer motivo melhor pra conhecer essa maravilha natural?",
+      "price": "27568.41"
+    },
+    {
+      "id": 3,
+      "imageOne": "img/mockImages/grand-canyon.png",
+      "imageTwo": "img/mockImages/grand-canyon.png",
+      "name": "Grand Canyon",
+      "target": "Espetáculo de erosão e grandiosidade geológica",
+      "destinationDescription": "Quer emoção? O Grand Canyon é puro espetáculo! Imagine um buraco colossal esculpido pela natureza, com vistas que te fazem sentir pequenininho. Trilhas alucinantes para os aventureiros, pores do sol de cair o queixo e uma vibe que só esse lugar tem. A história geológica exposta nas camadas de rocha é como uma aula de ciências em 3D. Se você curte paisagens que te deixam sem palavras, o Grand Canyon é parada obrigatória.",
+      "price": "18702.89"
+    },
+    {
+      "id": 4,
+      "imageOne": "img/mockImages/patagonia.png",
+      "imageTwo": "img/mockImages/patagonia.png",
+      "name": "Patagônia",
+      "target": "Natureza selvagem e paisagens épicas do sul do mundo",
+      "destinationDescription": "Se busca aventura, a Patagônia é o lugar! Paisagens épicas com montanhas, geleiras e lagos que te fazem sentir pequeno diante da natureza. Perfeito pra trilhas, escaladas e esportes radicais. Quer ver pinguins, baleias e uma fauna única? Aqui tem também. Clima imprevisível, mas cada dia é uma surpresa. Se curte desafios e cenários de tirar o fôlego, a Patagônia te espera de braços abertos!",
+      "price": "19314.11"
+    },
+    {
+      "id": 5,
+      "imageOne": "img/mockImages/turquia.png",
+      "imageTwo": "img/mockImages/turquia.png",
+      "name": "Turquia",
+      "target": "Encanto histórico, cultural e paisagens diversificadas",
+      "destinationDescription": "Bora conhecer a Turquia, galera! É um mix alucinante de história e modernidade. Istambul é um show à parte, com mesquitas deslumbrantes e bazares fervilhantes. A Capadócia te deixa de boca aberta com seus balões e formações rochosas. As termas de Pamukkale são tipo um spa natural. Ruínas de Éfeso te fazem viajar no tempo, e as praias são top!. É tipo um tour pela cultura, pela culinária e por cenários incríveis.",
+      "price": "16247.56"
+    },
+    {
+      "id": 6,
+      "imageOne": "img/mockImages/veneza.png",
+      "imageTwo": "img/mockImages/veneza.png",
+      "name": "Veneza",
+      "target": "Romance em canais, arte renascentista e charme sem igual",
+      "destinationDescription": "Bora pra Veneza, galera! A cidade das gôndolas e canais é pura magia. Ruas de água, pontes charmosas, arquitetura única. Se perde nas vielas, visita a Piazza San Marco e a Basílica. É como um filme romântico, só que real. Não perde os mercados, os restaurantes à beira do canal e os gelatos divinos. E que tal um passeio de gôndola ao pôr do sol? É clichê, mas é lindo demais. Veneza é um lugar que te abraça com história e charme.",
+      "price": "22270.99"
+    }
+  ]
 }

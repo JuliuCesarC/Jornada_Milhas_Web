@@ -2,22 +2,15 @@
 
 import {
   Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
   Container,
   Pagination,
-  Typography,
+  Typography
 } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { DestinationContext } from "../Context/DestinationContext";
-import SearchChip from "./SearchChip";
-import Link from "next/link";
-import ImageBase64 from "@/utils/ImageBase64";
 import DestinationList from "./DestinationList";
 import DestinationListSkeleton from "./DestinationListSkeleton";
+import SearchChip from "./SearchChip";
 
 export default function Destination() {
   const dContext = useContext(DestinationContext);

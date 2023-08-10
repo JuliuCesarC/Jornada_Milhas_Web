@@ -1,90 +1,106 @@
 {
-  "list": [
+  "content": [
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 1,
+      "imageOne": "img/mockImages/atacama.png",
+      "name": "Deserto do Atacama",
+      "target": "Paisagens deslumbrantes e aventuras únicas",
+      "price": "14876.33"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 2",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-      "price": "11876.33"
+      "id": 2,
+      "imageOne": "img/mockImages/cordilheira-dos-andes.png",
+      "name": "Cordilheira dos andes",
+      "target": "Majestosa beleza e imponência natural",
+      "price": "27568.41"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 3",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. ",
-      "price": "11876.33"
+      "id": 3,
+      "imageOne": "img/mockImages/grand-canyon.png",
+      "name": "Grand Canyon",
+      "target": "Espetáculo de erosão e grandiosidade geológica",
+      "price": "18702.89"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 4",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et,",
-      "price": "11876.33"
+      "id": 4,
+      "imageOne": "img/mockImages/patagonia.png",
+      "name": "Patagonia",
+      "target": "Natureza selvagem e paisagens épicas do sul do mundo",
+      "price": "19314.11"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 5",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis,",
-      "price": "11876.33"
+      "id": 5,
+      "imageOne": "img/mockImages/turquia.png",
+      "name": "Turquia",
+      "target": "Encanto histórico, cultural e paisagens diversificadas",
+      "price": "16247.56"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 6",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 6,
+      "imageOne": "img/mockImages/veneza.png",
+      "name": "Veneza",
+      "target": "Romance em canais, arte renascentista e charme sem igual",
+      "price": "22270.99"
+    },
+
+    {
+      "id": 2,
+      "imageOne": "img/mockImages/cordilheira-dos-andes.png",
+      "name": "Cordilheira dos andes",
+      "target": "Majestosa beleza e imponência natural",
+      "price": "27568.41"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 7",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 5,
+      "imageOne": "img/mockImages/turquia.png",
+      "name": "Turquia",
+      "target": "Encanto histórico, cultural e paisagens diversificadas",
+      "price": "16247.56"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 8",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 1,
+      "imageOne": "img/mockImages/atacama.png",
+      "name": "Deserto do Atacama",
+      "target": "Paisagens deslumbrantes e aventuras únicas",
+      "price": "14876.33"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 9",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 3,
+      "imageOne": "img/mockImages/grand-canyon.png",
+      "name": "Grand Canyon",
+      "target": "Espetáculo de erosão e grandiosidade geológica",
+      "price": "18702.89"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 10",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 6,
+      "imageOne": "img/mockImages/veneza.png",
+      "name": "Veneza",
+      "target": "Romance em canais, arte renascentista e charme sem igual",
+      "price": "22270.99"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 11",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 4,
+      "imageOne": "img/mockImages/patagonia.png",
+      "name": "Patagonia",
+      "target": "Natureza selvagem e paisagens épicas do sul do mundo",
+      "price": "19314.11"
+    },
+
+    {
+      "id": 2,
+      "imageOne": "img/mockImages/cordilheira-dos-andes.png",
+      "name": "Cordilheira dos andes",
+      "target": "Majestosa beleza e imponência natural",
+      "price": "27568.41"
     },
     {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 12",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
-    },
-    {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 13",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
-    },
-    {
-      "imageBytes": "img/images/atacama_destination.jpg",
-      "title": "Deserto do Atacama 14",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis felis a erat dictum euismod. In id ligula sagittis, elementum nibh et, dictum tellus. Curabitur sit amet",
-      "price": "11876.33"
+      "id": 4,
+      "imageOne": "img/mockImages/patagonia.png",
+      "name": "Patagonia",
+      "target": "Natureza selvagem e paisagens épicas do sul do mundo",
+      "price": "19314.11"
     }
   ],
-  "totalPages": 3,
-  "number": 0
+  "number": 0,
+  "totalPages": 3
 }

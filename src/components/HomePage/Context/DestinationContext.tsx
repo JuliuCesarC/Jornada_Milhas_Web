@@ -34,7 +34,6 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
     setLoadingState(true);
     if (name) {
       const dList = await getSearchDestination(page, name);
-      console.log("Lista de destinos: " + await dList);
       setDestinationList(dList);
       setPageNumber(0);
       setLastSearch(name);

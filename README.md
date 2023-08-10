@@ -4,8 +4,6 @@ Pagina web para consumir a api construída com o challenge backend da Alura. O d
 
 ## Resultado esperado
 
-
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
