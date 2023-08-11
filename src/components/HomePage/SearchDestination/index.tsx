@@ -5,14 +5,14 @@ import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import SearchInputText from "./SearchInputText";
 import theme from "../../ThemeRegistry/theme";
 import { useContext, useState } from "react";
-import { DestinationContext } from "../../Context/DestinationContext";
+import { DestinationListContext } from "../../Context/DestinationListContext";
 
 interface SearchDestinationProps {}
 
 const SearchBox = styled.div``;
 
 export default function SearchDestination(props: SearchDestinationProps) {
-  const dContext = useContext(DestinationContext);
+  const dContext = useContext(DestinationListContext);
   const [searchText, setSearchText] = useState<string>("");
 
   function search(){

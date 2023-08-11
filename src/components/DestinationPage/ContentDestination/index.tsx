@@ -4,24 +4,18 @@ import { Box, Container, Skeleton, Typography } from "@mui/material";
 
 import getDestination, { DestinationType } from "@/utils/getDestination";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ImageCardDestination from "./ImageCardDestination";
+import { DestinationPageContext } from "@/components/Context/DestinationPageContext";
 
 export default function ContentDestination() {
-  const router = useSearchParams();
-  const [destination, setDestination] = useState<DestinationType>();
+  const dContext = useContext(DestinationPageContext);
 
   useEffect(() => {
-    loadDestination();
+    dContext.loadDestination();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  async function loadDestination() {
-    if (!router.get("id")) return;
-    setDestination(
-      await getDestination(router.get("id")!.replace(/[^0-9]/g, ""))
-    );
-  }
   return (
     <Container>
       <Typography
@@ -33,7 +27,11 @@ export default function ContentDestination() {
           fontWeight: 400,
         }}
       >
-        {!destination ? <Skeleton width="40%" height="4rem" /> : destination!.name}
+        {dContext.destination && !dContext.loadingState ? (
+          dContext.destination!.name
+        ) : (
+          <Skeleton width="40%" height="4rem" />
+        )}
       </Typography>
       <Typography
         variant="h2"
@@ -44,7 +42,11 @@ export default function ContentDestination() {
           fontWeight: { xs: 400, sm: 500 },
         }}
       >
-        {!destination ? <Skeleton width="70%" height="1.8rem" /> : destination!.target}
+        {dContext.destination && !dContext.loadingState ? (
+          dContext.destination!.target
+        ) : (
+          <Skeleton width="70%" height="1.8rem" />
+        )}
       </Typography>
       <Box
         sx={{
@@ -58,15 +60,27 @@ export default function ContentDestination() {
           borderRadius: 2,
         }}
       >
-        {destination ? (
+        {dContext.destination && !dContext.loadingState ? (
           <>
-            <ImageCardDestination image={destination.imageOne} />
-            <ImageCardDestination image={destination.imageTwo} />
+            <ImageCardDestination
+              image={dContext.destination.imageOne}
+              mockDestination={dContext.mockDestination}
+            />
+            <ImageCardDestination
+              image={dContext.destination.imageTwo}
+              mockDestination={dContext.mockDestination}
+            />
           </>
         ) : (
           <>
-            <Skeleton variant="rounded" sx={{width: "100%", height: "100%", aspectRatio: "2/1"}} />
-            <Skeleton variant="rounded" sx={{width: "100%", height: "100%", aspectRatio: "2/1"}} />
+            <Skeleton
+              variant="rounded"
+              sx={{ width: "100%", height: "100%", aspectRatio: "2/1" }}
+            />
+            <Skeleton
+              variant="rounded"
+              sx={{ width: "100%", height: "100%", aspectRatio: "2/1" }}
+            />
           </>
         )}
       </Box>
@@ -77,14 +91,16 @@ export default function ContentDestination() {
           fontSize: { xs: "1rem", sm: "1.05rem", md: "1.1rem" },
         }}
       >
-        {!destination ? 
-        <>
-          <Skeleton width="97%" height="1.2rem" /> 
-          <Skeleton width="99%" height="1.2rem" /> 
-          <Skeleton width="96%" height="1.2rem" /> 
-          <Skeleton width="94%" height="1.2rem" /> 
-        </>
-        : destination!.destinationDescription}
+        {dContext.destination && !dContext.loadingState ? (
+          dContext.destination!.destinationDescription
+        ) : (
+          <>
+            <Skeleton width="97%" height="1.2rem" />
+            <Skeleton width="99%" height="1.2rem" />
+            <Skeleton width="96%" height="1.2rem" />
+            <Skeleton width="94%" height="1.2rem" />
+          </>
+        )}
       </Typography>
     </Container>
   );

@@ -4,15 +4,18 @@ import SearchDestination from "@/components/HomePage/SearchDestination";
 import Testimonial from "@/components/HomePage/Testimonial";
 import styles from "./page.module.css";
 import BannerFooter from "@/components/HomePage/BannerFooter";
+import { DestinationListProvider } from "@/components/Context/DestinationListContext";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <BannerHome />
-      <SearchDestination />
-      <Destination />
-      <Testimonial />
-      <BannerFooter />
+      <DestinationListProvider>
+        <BannerHome />
+        <SearchDestination />
+        <Destination />
+        <Testimonial />
+        <BannerFooter />
+      </DestinationListProvider>
     </main>
   );
 }

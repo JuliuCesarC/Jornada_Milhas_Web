@@ -3,9 +3,13 @@ import { Box } from "@mui/material";
 
 interface ImageCardDestinationProps {
   image: string;
+  mockDestination: boolean;
 }
 
 export default function ImageCardDestination(props: ImageCardDestinationProps) {
+  const url = props.mockDestination
+    ? "url(" + props.image + ")"
+    : "url(" + ImageBase64(props.image) + ")";
   return (
     <Box
       sx={{
@@ -15,12 +19,11 @@ export default function ImageCardDestination(props: ImageCardDestinationProps) {
         borderColor: "grey.400",
         borderRadius: 1,
         overflow: "hidden",
-        backgroundImage: "url(" + ImageBase64(props.image) + ")",
+        backgroundImage: url,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
-    >
-    </Box>
+    ></Box>
   );
 }

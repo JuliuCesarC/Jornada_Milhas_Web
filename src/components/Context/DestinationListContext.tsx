@@ -13,7 +13,7 @@ import {
 } from "react";
 import DestinationListMock from "../mocks/DestinationListMock.json";
 
-export interface DestinationContextType {
+export interface DestinationListContextType {
   destinationList: IDestinationList | undefined;
   changeDestinationList: (page: number, name?: string) => void;
   mockDestinationList: boolean;
@@ -24,9 +24,9 @@ export interface DestinationContextType {
   resetDestinationList: () => void;
 }
 
-export const DestinationContext = createContext({} as DestinationContextType);
+export const DestinationListContext = createContext({} as DestinationListContextType);
 
-export function DestinationProvider({ children }: { children: ReactNode }) {
+export function DestinationListProvider({ children }: { children: ReactNode }) {
   const [destinationList, setDestinationList] = useState<IDestinationList>();
   const [mockDestinationList, setMockDestinationList] = useState(false);
   const [LoadingState, setLoadingState] = useState(false);
@@ -52,6 +52,7 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
     if (!list) {
       defineDestinationList(DestinationListMock);
       setMockDestinationList(true)
+      setLoadingState(false);
       return;
     }
     setDestinationList(list);
@@ -64,7 +65,7 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
     setPageNumber(0);
   }
   return (
-    <DestinationContext.Provider
+    <DestinationListContext.Provider
       value={{
         destinationList,
         changeDestinationList,
@@ -77,6 +78,6 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
       }}
     >
       {children}
-    </DestinationContext.Provider>
+    </DestinationListContext.Provider>
   );
 }
