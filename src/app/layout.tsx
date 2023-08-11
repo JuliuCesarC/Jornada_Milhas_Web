@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
 import type { Metadata } from "next";
 import "./globals.css";
+import { DestinationListProvider } from "@/components/Context/DestinationListContext";
 
 export const metadata: Metadata = {
   title: "Jornada Milhas",
@@ -20,9 +21,11 @@ export default function RootLayout({
       <body>
         <ThemeRegistry>
           <DestinationPageProvider>
-            <Header />
-            {children}
-            <Footer />
+            <DestinationListProvider>
+              <Header />
+              {children}
+              <Footer />
+            </DestinationListProvider>
           </DestinationPageProvider>
         </ThemeRegistry>
       </body>
