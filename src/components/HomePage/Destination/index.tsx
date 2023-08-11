@@ -7,7 +7,7 @@ import {
   Typography
 } from "@mui/material";
 import { useContext, useEffect } from "react";
-import { DestinationContext } from "../Context/DestinationContext";
+import { DestinationContext } from "../../Context/DestinationContext";
 import DestinationList from "./DestinationList";
 import DestinationListSkeleton from "./DestinationListSkeleton";
 import SearchChip from "./SearchChip";
@@ -18,13 +18,9 @@ export default function Destination() {
 
   useEffect(() => {
     if(dContext.destinationList)return;
-    updateInitialProps();
+    dContext.changeDestinationList(dContext.pageNumber);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  function updateInitialProps() {
-    dContext.changeDestinationList(dContext.pageNumber);
-  }
 
   async function paginationChange(
     event: React.ChangeEvent<unknown>,

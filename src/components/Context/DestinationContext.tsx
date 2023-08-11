@@ -11,10 +11,12 @@ import {
   createContext,
   useState,
 } from "react";
+import DestinationListMock from "../mocks/DestinationListMock.json";
 
 export interface DestinationContextType {
   destinationList: IDestinationList | undefined;
   changeDestinationList: (page: number, name?: string) => void;
+  mockDestinationList: boolean;
   LoadingState: boolean;
   pageNumber: number;
   setPageNumber: Dispatch<SetStateAction<number>>;
@@ -26,6 +28,7 @@ export const DestinationContext = createContext({} as DestinationContextType);
 
 export function DestinationProvider({ children }: { children: ReactNode }) {
   const [destinationList, setDestinationList] = useState<IDestinationList>();
+  const [mockDestinationList, setMockDestinationList] = useState(false);
   const [LoadingState, setLoadingState] = useState(false);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [lastSearch, setLastSearch] = useState<string>("");
@@ -33,28 +36,31 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
   async function changeDestinationList(page: number, name?: string) {
     setLoadingState(true);
     if (name) {
-      const dList = await getSearchDestination(page, name);
-      setDestinationList(dList);
+      defineDestinationList(await getSearchDestination(page, name));
       setPageNumber(0);
       setLastSearch(name);
-      setLoadingState(false);
       return;
     }
     if (lastSearch) {
-      const dList = await getSearchDestination(page, lastSearch);
-      setDestinationList(dList);
-      setLoadingState(false);
+      defineDestinationList(await getSearchDestination(page, lastSearch));
       return;
     }
-    const dList = await getDestinationList(page);
-    setDestinationList(dList);
-    setLoadingState(false);
+    defineDestinationList(await getDestinationList(page));
   }
 
+  function defineDestinationList(list: IDestinationList) {
+    if (!list) {
+      defineDestinationList(DestinationListMock);
+      setMockDestinationList(true)
+      return;
+    }
+    setDestinationList(list);
+    setMockDestinationList(false)
+    setLoadingState(false);
+  }
   async function resetDestinationList() {
+    defineDestinationList(await getDestinationList(0))
     setLastSearch("");
-    const dList = await getDestinationList(0);
-    setDestinationList(dList);
     setPageNumber(0);
   }
   return (
@@ -62,6 +68,7 @@ export function DestinationProvider({ children }: { children: ReactNode }) {
       value={{
         destinationList,
         changeDestinationList,
+        mockDestinationList,
         LoadingState,
         pageNumber,
         setPageNumber,

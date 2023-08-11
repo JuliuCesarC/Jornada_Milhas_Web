@@ -3,7 +3,7 @@ import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/Footer";
-import { DestinationProvider } from "@/components/HomePage/Context/DestinationContext";
+import { DestinationProvider } from "@/components/Context/DestinationContext";
 
 export const metadata: Metadata = {
   title: "Jornada Milhas",

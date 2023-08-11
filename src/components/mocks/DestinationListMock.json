@@ -5,100 +5,42 @@
       "imageOne": "img/mockImages/atacama.png",
       "name": "Deserto do Atacama",
       "target": "Paisagens deslumbrantes e aventuras únicas",
-      "price": "14876.33"
+      "price": 14876.33
     },
     {
       "id": 2,
       "imageOne": "img/mockImages/cordilheira-dos-andes.png",
       "name": "Cordilheira dos andes",
       "target": "Majestosa beleza e imponência natural",
-      "price": "27568.41"
+      "price": 27568.41
     },
     {
       "id": 3,
       "imageOne": "img/mockImages/grand-canyon.png",
       "name": "Grand Canyon",
       "target": "Espetáculo de erosão e grandiosidade geológica",
-      "price": "18702.89"
+      "price": 18702.89
     },
     {
       "id": 4,
       "imageOne": "img/mockImages/patagonia.png",
       "name": "Patagonia",
       "target": "Natureza selvagem e paisagens épicas do sul do mundo",
-      "price": "19314.11"
+      "price": 19314.11
     },
     {
       "id": 5,
       "imageOne": "img/mockImages/turquia.png",
       "name": "Turquia",
       "target": "Encanto histórico, cultural e paisagens diversificadas",
-      "price": "16247.56"
+      "price": 16247.56
     },
     {
       "id": 6,
       "imageOne": "img/mockImages/veneza.png",
       "name": "Veneza",
       "target": "Romance em canais, arte renascentista e charme sem igual",
-      "price": "22270.99"
-    },
-
-    {
-      "id": 2,
-      "imageOne": "img/mockImages/cordilheira-dos-andes.png",
-      "name": "Cordilheira dos andes",
-      "target": "Majestosa beleza e imponência natural",
-      "price": "27568.41"
-    },
-    {
-      "id": 5,
-      "imageOne": "img/mockImages/turquia.png",
-      "name": "Turquia",
-      "target": "Encanto histórico, cultural e paisagens diversificadas",
-      "price": "16247.56"
-    },
-    {
-      "id": 1,
-      "imageOne": "img/mockImages/atacama.png",
-      "name": "Deserto do Atacama",
-      "target": "Paisagens deslumbrantes e aventuras únicas",
-      "price": "14876.33"
-    },
-    {
-      "id": 3,
-      "imageOne": "img/mockImages/grand-canyon.png",
-      "name": "Grand Canyon",
-      "target": "Espetáculo de erosão e grandiosidade geológica",
-      "price": "18702.89"
-    },
-    {
-      "id": 6,
-      "imageOne": "img/mockImages/veneza.png",
-      "name": "Veneza",
-      "target": "Romance em canais, arte renascentista e charme sem igual",
-      "price": "22270.99"
-    },
-    {
-      "id": 4,
-      "imageOne": "img/mockImages/patagonia.png",
-      "name": "Patagonia",
-      "target": "Natureza selvagem e paisagens épicas do sul do mundo",
-      "price": "19314.11"
-    },
-
-    {
-      "id": 2,
-      "imageOne": "img/mockImages/cordilheira-dos-andes.png",
-      "name": "Cordilheira dos andes",
-      "target": "Majestosa beleza e imponência natural",
-      "price": "27568.41"
-    },
-    {
-      "id": 4,
-      "imageOne": "img/mockImages/patagonia.png",
-      "name": "Patagonia",
-      "target": "Natureza selvagem e paisagens épicas do sul do mundo",
-      "price": "19314.11"
+      "price": 22270.99
     }
   ],
   "number": 0,

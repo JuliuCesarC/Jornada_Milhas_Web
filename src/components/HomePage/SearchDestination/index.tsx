@@ -5,7 +5,7 @@ import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import SearchInputText from "./SearchInputText";
 import theme from "../../ThemeRegistry/theme";
 import { useContext, useState } from "react";
-import { DestinationContext } from "../Context/DestinationContext";
+import { DestinationContext } from "../../Context/DestinationContext";
 
 interface SearchDestinationProps {}
 

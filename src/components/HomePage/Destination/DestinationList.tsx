@@ -6,7 +6,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { DestinationContextType } from "../Context/DestinationContext";
+import { DestinationContextType } from "../../Context/DestinationContext";
 import Link from "next/link";
 import ImageBase64 from "@/utils/ImageBase64";
 
@@ -15,7 +15,6 @@ interface DestinationListProps {
 }
 
 export default function DestinationList(props: DestinationListProps) {
-  props.dContext;
   return (
     <>
       {props.dContext.destinationList!.content.map((destination, index) => {
@@ -36,7 +35,11 @@ export default function DestinationList(props: DestinationListProps) {
           >
             <CardMedia
               sx={{ height: 270 }}
-              image={ImageBase64(destination.imageOne)}
+              image={
+                !props.dContext.mockDestinationList
+                  ? ImageBase64(destination.imageOne)
+                  : destination.imageOne
+              }
               title={`Imagem card destino: ${destination.name}`}
             />
             <CardContent sx={{}}>
